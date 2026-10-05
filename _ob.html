@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оформление заказа — QazaqRepublic</title>
+<meta name="description" content="Оформление заказа — QazaqRepublic">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0e'/%3E%3Cpath d='M6 24L12 8l6 16 6-16' fill='none' stroke='%23ff4d1f' stroke-width='3.4' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div id="qrHeader"><nav class="nav nav--fallback" aria-label="Основная навигация"><a class="nav__link" href="index.html">Главная</a><a class="nav__link" href="catalog.html">Магазин</a><a class="nav__link" href="catalog.html?cat=hudi">Худи</a><a class="nav__link" href="catalog.html?cat=svitshot">Свитшоты</a><a class="nav__link" href="catalog.html?cat=futbolka">Футболки</a><a class="nav__link" href="catalog.html?cat=niz">Брюки</a><a class="nav__link" href="catalog.html?cat=sumka">Сумки</a><a class="nav__link" href="catalog.html?cat=giftbox">Подарочные</a><a class="nav__link" href="about.html">О бренде</a><a class="nav__link" href="contacts.html">Контакты</a></nav></div>
+<div id="qrMenu"></div>
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs">
+      <a href="index.html" data-i18n="nav.home">Главная</a>
+      <span class="ic" data-chev></span>
+      <a href="cart.html" data-i18n="nav.cart">Корзина</a>
+      <span class="ic" data-chev></span>
+      <span data-i18n="checkout.title">Оформление заказа</span>
+    </nav>
+    <h1 class="display h-lg" data-i18n="checkout.title">Оформление заказа</h1>
+  </div>
+</div>
+
+<div class="wrap" style="padding-block:clamp(26px,4vw,54px)">
+  <div id="qrCheckout"></div>
+</div>
+
+<div id="qrFooter"></div>
+
+
+<script>
+(function () {
+  var observed = [];
+  var Real = window.IntersectionObserver;
+  window.IntersectionObserver = function (cb, opts) {
+    var io = new Real(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, opts);
+    io.observe = function (el) { observed.push(el); Real.prototype.observe.call(io, el); };
+    return io;
+  };
+  window.IntersectionObserver.prototype = Real.prototype;
+  window.__observed = observed;
+})();
+</script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/images.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/checkout.js"></script>
+<pre id="D" style="position:fixed;left:0;top:0;width:660px;max-height:100vh;overflow:auto;background:#fff;color:#000;font:11px monospace;padding:6px;white-space:pre-wrap;margin:0;z-index:99999">WAIT</pre><script>window.addEventListener("load",function(){setTimeout(function(){var out={};try{window.__observed.forEach(function(n){n.classList.add("in")});var all=Array.prototype.slice.call(document.querySelectorAll("[data-rv]"));out.rv_total=all.length;out.rv_observed=all.filter(function(n){return window.__observed.indexOf(n)!==-1}).length;var unobs=all.filter(function(n){return window.__observed.indexOf(n)===-1});out.rv_UNOBSERVED=unobs.length;out.unobserved_where=unobs.slice(0,12).map(function(n){var h=n.closest("[id]");return (h?"#"+h.id:"(без id)")+" ."+(typeof n.className==="string"?n.className.trim().split(/\s+/)[0]:"")}).join(" ; ");var cc=document.getElementById("qrCats");if(cc){out.cats_cards=cc.children.length;out.cats_registered=Array.prototype.slice.call(cc.children).filter(function(c){return window.__observed.indexOf(c)!==-1}).length;}out.errors=(window.__errs||[]).join(" | ")||"нет";}catch(e){out.err=e.message}document.getElementById("D").textContent="RESULT "+JSON.stringify(out)},2500)});window.__errs=[];window.addEventListener("error",function(e){window.__errs.push(e.message)});</script></body>
+</html>

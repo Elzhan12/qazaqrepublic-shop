@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QazaqRepublic — магазин казахской одежды</title>
+<meta name="description" id="qrMeta" content="QazaqRepublic — казахский streetwear: худи, свитшоты, футболки, рубашки, брюки, куртки и аксессуары.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0e'/%3E%3Cpath d='M6 24L12 8l6 16 6-16' fill='none' stroke='%23ff4d1f' stroke-width='3.4' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div id="qrHeader"><nav class="nav nav--fallback" aria-label="Основная навигация"><a class="nav__link" href="index.html">Главная</a><a class="nav__link" href="catalog.html">Магазин</a><a class="nav__link" href="catalog.html?cat=hudi">Худи</a><a class="nav__link" href="catalog.html?cat=svitshot">Свитшоты</a><a class="nav__link" href="catalog.html?cat=futbolka">Футболки</a><a class="nav__link" href="catalog.html?cat=niz">Брюки</a><a class="nav__link" href="catalog.html?cat=sumka">Сумки</a><a class="nav__link" href="catalog.html?cat=giftbox">Подарочные</a><a class="nav__link" href="about.html">О бренде</a><a class="nav__link" href="contacts.html">Контакты</a></nav></div>
+<div id="qrMenu"></div>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__bg">
+      <img class="hero__img1" data-scene="hero1" alt="" aria-hidden="true">
+      <img class="hero__img2" data-scene="hero2" alt="" aria-hidden="true">
+      <img class="hero__img3" data-scene="hero3" alt="" aria-hidden="true">
+    </div>
+
+    <div class="wrap">
+      <div class="hero__in">
+        <div>
+          <span class="hero__kicker" style="animation:heroIn .8s var(--ease-out) both"><b>✦</b> <span data-i18n="hero.kicker">Дроп 2026</span></span>
+          <h1 class="display h-xl hero__title" style="animation:heroIn .9s var(--ease-out) .08s both">
+            <span data-i18n="hero.title1">Сделано</span>
+            <span><em data-i18n="hero.title2">в Казахстане</em></span>
+          </h1>
+          <p class="hero__text" data-i18n="hero.text" style="animation:heroIn .9s var(--ease-out) .18s both"></p>
+          <div class="hero__cta" style="animation:heroIn .9s var(--ease-out) .26s both">
+            <a class="btn btn-gold btn-lg" href="catalog.html" data-i18n="hero.cta">Смотреть магазин</a>
+            <a class="btn btn-ghost btn-lg" href="about.html" style="--fg:#f7f7f5;--bd:rgba(247,247,245,.28)" data-i18n="hero.cta2">О бренде</a>
+          </div>
+
+          <div class="hero__stats" style="animation:heroIn .9s var(--ease-out) .34s both">
+            <div class="hero__stat">
+              <b><span data-count="111" data-suf="">0</span></b>
+              <span data-i18n="hero.stat1">моделей в каталоге</span>
+            </div>
+            <div class="hero__stat">
+              <b><span data-count="18" data-suf="">0</span></b>
+              <span data-i18n="hero.stat2">городов доставки</span>
+            </div>
+            <div class="hero__stat">
+              <b><span data-count="7" data-suf="">0</span></b>
+              <span data-i18n="hero.stat3">лет бренду</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__side" style="animation:heroIn 1s var(--ease-out) .3s both">
+          <div class="hero__card">
+            <b>5%</b>
+            <span data-i18n="product.cashback">Кэшбэк</span>
+          </div>
+          <div class="hero__card">
+            <b data-i18n="cart.free">бесплатно</b>
+            <span data-i18n="strip.4">доставка по Казахстану</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <span data-i18n="hero.scroll">листайте</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="qrMarquee"></div>
+  </div>
+
+  <!-- ============ КАТЕГОРИИ ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__t">
+          <span class="eyebrow" data-i18n="cat.sub">Вещи, которые носят каждый день</span>
+          <h2 class="display h-lg" data-i18n="cat.title">Категории</h2>
+        </div>
+        <a class="link-u" href="catalog.html"><span data-i18n="cat.all">Смотреть все</span></a>
+      </div>
+      <div class="cats" id="qrCats"></div>
+    </div>
+  </section>
+
+  <div class="orn-div" data-orn></div>
+
+  <!-- ============ ХИТЫ ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__t">
+          <span class="eyebrow">QazaqRepublic</span>
+          <h2 class="display h-lg" data-i18n="cat.hit">Хиты продаж</h2>
+          <p class="muted" data-i18n="products.sub">То, что забирают чаще всего</p>
+        </div>
+        <a class="link-u" href="catalog.html"><span data-i18n="products.all">Весь каталог</span></a>
+      </div>
+      <div id="qrHits"><!-- скелетоны --></div>
+    </div>
+  </section>
+
+  <!-- ============ КАК МЫ ДЕЛАЕМ ============ -->
+  <section class="section bg-sand">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__t">
+          <span class="eyebrow" data-i18n="craft.sub">От лекала до готовой партии</span>
+          <h2 class="display h-lg" data-i18n="craft.title">Как мы делаем вещь</h2>
+        </div>
+      </div>
+      <div class="craft" id="qrCraft"></div>
+    </div>
+  </section>
+
+  <!-- ============ О БРЕНДЕ ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="about">
+        <div class="about__media" data-rv="left">
+          <img class="ph" data-scene="about1" alt="QazaqRepublic">
+          <img class="ph ph-2" data-scene="about2" alt="QazaqRepublic">
+          <div class="about__stamp" aria-hidden="true"><span>QRC<br>street</span></div>
+        </div>
+        <div data-rv="right">
+          <span class="eyebrow">Astana · Almaty</span>
+          <h2 class="display h-lg" style="margin:14px 0 0" data-i18n="about.title">Бренд из Казахстана</h2>
+          <p class="lead" style="margin-top:18px" data-i18n="about.text1"></p>
+          <p class="lead" style="margin-top:14px" data-i18n="about.text2"></p>
+          <div class="about__feats" id="qrFeats"></div>
+          <a class="btn btn-ghost" style="margin-top:30px" href="about.html">
+            <span data-i18n="hero.cta2">О бренде</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ЦИФРЫ ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat" data-rv style="--d:0s"><b><span data-count="111" data-suf="">0</span></b><span data-i18n="hero.stat1">моделей в каталоге</span></div>
+        <div class="stat" data-rv style="--d:.07s"><b><span data-count="11" data-suf="">0</span></b><span id="qrStatStitch">категорий</span></div>
+        <div class="stat" data-rv style="--d:.14s"><b><span data-count="18" data-suf="">0</span></b><span data-i18n="hero.stat2">городов доставки</span></div>
+        <div class="stat" data-rv style="--d:.21s"><b><span data-count="4.8" data-suf="">0</span></b><span id="qrStatRate">оценка покупателей</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="orn-div" data-orn></div>
+
+  <!-- ============ ОТЗЫВЫ ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__t">
+          <span class="eyebrow">4.9 ★</span>
+          <h2 class="display h-lg" data-i18n="reviews.title">Что говорят покупатели</h2>
+        </div>
+        <p class="muted" data-i18n="reviews.sub">4.9 из 5 — 412 отзывов</p>
+      </div>
+      <div class="reviews" id="qrReviews"></div>
+    </div>
+  </section>
+
+  <!-- ============ РАССЫЛКА ============ -->
+  <section class="section news">
+    <div class="wrap">
+      <div class="news__in">
+        <div data-rv="left">
+          <span class="eyebrow" style="color:var(--gold-lt)">QazaqRepublic</span>
+          <h2 class="display h-lg" style="margin:14px 0 0" data-i18n="news.title">Письма из цеха</h2>
+          <p class="lead" style="margin-top:14px;color:rgba(247,247,245,.74)" data-i18n="news.sub">Скидки, новые дропы и распродажи</p>
+        </div>
+        <form class="news__form" id="qrNews" novalidate data-rv="right">
+          <input class="input" type="email" required data-i18n-ph="news.placeholder" placeholder="Ваш email" aria-label="Email">
+          <button class="btn btn-gold" type="submit" data-i18n="news.button">Подписаться</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="qrFooter"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/images.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

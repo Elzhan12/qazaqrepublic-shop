@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каталог — QazaqRepublic</title>
+<meta name="description" id="qrMeta" content="Каталог QazaqRepublic: худи, свитшоты, футболки, рубашки, куртки, брюки, сумки и аксессуары.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0e'/%3E%3Cpath d='M6 24L12 8l6 16 6-16' fill='none' stroke='%23ff4d1f' stroke-width='3.4' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div id="qrHeader"><nav class="nav nav--fallback" aria-label="Основная навигация"><a class="nav__link" href="index.html">Главная</a><a class="nav__link" href="catalog.html">Магазин</a><a class="nav__link" href="catalog.html?cat=hudi">Худи</a><a class="nav__link" href="catalog.html?cat=svitshot">Свитшоты</a><a class="nav__link" href="catalog.html?cat=futbolka">Футболки</a><a class="nav__link" href="catalog.html?cat=niz">Брюки</a><a class="nav__link" href="catalog.html?cat=sumka">Сумки</a><a class="nav__link" href="catalog.html?cat=giftbox">Подарочные</a><a class="nav__link" href="about.html">О бренде</a><a class="nav__link" href="contacts.html">Контакты</a></nav></div>
+<div id="qrMenu"></div>
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs">
+      <a href="index.html" data-i18n="nav.home">Главная</a>
+      <span class="ic" data-chev></span>
+      <span data-i18n="nav.catalog">Магазин</span>
+      <span id="qrCrumb" hidden></span>
+    </nav>
+    <h1 class="display h-lg" id="qrTitle">Каталог</h1>
+    <p class="lead" style="margin-top:12px;max-width:56ch">
+      Худи, футболки, брюки, сумки и аксессуары. Фильтруйте по размеру, цвету и ткани.
+    </p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-block:clamp(24px,4vw,46px)">
+  <div class="shop">
+
+    <!-- ============ ФИЛЬТРЫ ============ -->
+    <aside class="filters" id="filters">
+      <div class="filters__head">
+        <h3 data-i18n="products.filters">Фильтры</h3>
+        <button class="icon-btn filters__close" data-filters="close" aria-label="Закрыть" style="display:none"></button>
+      </div>
+
+      <details class="fgroup" open>
+        <summary><span data-i18n="cat.title">Категории</span> <span class="ic" data-chev></span></summary>
+        <div class="fgroup__body" id="fCat"></div>
+      </details>
+
+      <details class="fgroup" open>
+        <summary><span data-i18n="cat.filterType">Тип изделия</span> <span class="ic" data-chev></span></summary>
+        <div class="fgroup__body" id="fType"></div>
+      </details>
+
+      <details class="fgroup" open>
+        <summary><span data-i18n="product.size">Размер</span> <span class="ic" data-chev></span></summary>
+        <div class="fgroup__body"><div class="size-list" id="fSize"></div></div>
+      </details>
+
+      <details class="fgroup" open>
+        <summary><span data-i18n="product.color">Цвет</span> <span class="ic" data-chev></span></summary>
+        <div class="fgroup__body"><div class="swatch-list" id="fColor"></div></div>
+      </details>
+
+      <details class="fgroup" open>
+        <summary><span data-i18n="cart.price">Цена</span><span class="muted">, ₸</span> <span class="ic" data-chev></span></summary>
+        <div class="fgroup__body">
+          <input class="range" id="fRange" type="range" min="3000" max="45000" step="500" value="45000">
+          <div class="price-inputs">
+            <input class="input" id="fMin" type="number" inputmode="numeric" placeholder="от 3 000">
+            <span class="muted">—</span>
+            <input class="input" id="fMax" type="number" inputmode="numeric" placeholder="до 45 000">
+          </div>
+        </div>
+      </details>
+
+      <details class="fgroup">
+        <summary><span data-i18n="cat.filterFabric">Ткань</span> <span class="ic" data-chev></span></summary>
+        <div class="fgroup__body" id="fFabric"></div>
+      </details>
+
+      <div style="padding-top:16px">
+        <button class="btn btn-ghost btn-block btn-sm" id="fReset" data-i18n="products.reset">Сбросить фильтры</button>
+      </div>
+    </aside>
+    <div class="filters__scrim" id="filtersScrim" data-filters="close"></div>
+
+    <!-- ============ СПИСОК ============ -->
+    <div>
+      <div class="toolbar">
+        <div class="toolbar__count" id="fCount"></div>
+        <div class="toolbar__right">
+          <button class="btn btn-ghost btn-sm" data-filters="open" style="display:none" id="fOpen">
+            <span data-chev-filter></span><span data-i18n="products.filters">Фильтры</span>
+          </button>
+          <div class="view-toggle" role="group">
+            <button data-view="grid" class="on" aria-label="Сетка"></button>
+            <button data-view="list" aria-label="Список"></button>
+          </div>
+          <select class="select" id="fSort" aria-label="Сортировка">
+            <option value="pop">Сначала популярные</option>
+            <option value="new">Сначала новинки</option>
+            <option value="cheap">Сначала дешевле</option>
+            <option value="expensive">Сначала дороже</option>
+            <option value="discount">По скидке</option>
+            <option value="name">По названию</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="chips" id="fChips"></div>
+
+      <div id="fGrid"></div>
+
+      <div class="more-wrap">
+        <button class="btn btn-ghost btn-lg" id="fMore" hidden></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="orn-div" data-orn style="margin-bottom:clamp(30px,5vw,60px)"></div>
+
+<div id="qrFooter"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/images.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/catalog.js"></script>
+</body>
+</html>
